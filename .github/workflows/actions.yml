@@ -1,11 +1,12 @@
 name: "Terraform Infrastructure Change Management Pipeline with GitHub Actions for the interview"
  
 on:
- push:
+  workflow_dispatch:
+  push:
    branches:
    - main
    
- pull_request:
+  pull_request:
    branches:
    - main
  
