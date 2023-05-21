@@ -5,7 +5,7 @@ on:
       - main
 env:
   AWS_REGION: ap-northeast-3
-  ECS_CLUSTER: my-ecs-cluste
+  ECS_CLUSTER: my-ecs-cluster
   CONTAINER_NAME: helloworld-container
   ECS_SERVICE: my-ecs-service
   ECS_TD: .github/workflows/td.json
