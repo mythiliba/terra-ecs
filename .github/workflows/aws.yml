@@ -9,6 +9,9 @@ env:
   CONTAINER_NAME: helloworld-container
   ECS_SERVICE: my-ecs-service
   ECS_TD: .github/workflows/td.json
+  
+permissions:
+  contents: read
 
 jobs:
   deploy:
@@ -32,13 +35,13 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: "p9w4k9q9.dkr.ecr.ap-northeast-3.amazonaws.com"
-          ECR_REPOSITORY: "helloworld-ecs"
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: "public.ecr.aws/p9w4k9q9/helloworld-ecs"
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def-1
