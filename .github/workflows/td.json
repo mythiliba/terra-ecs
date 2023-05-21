@@ -1,0 +1,48 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-3:514026916061:task-definition/my-task-def",
+    "containerDefinitions": [
+        {
+            "name": "helloworld-container",
+            "image": "public.ecr.aws/p9w4k9q9/helloworld-ecs",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": []
+        }
+    ],
+    "family": "my-task-def",
+    "executionRoleArn": "arn:aws:iam::514026916061:role/ecs-task-execution-role",
+    "networkMode": "awsvpc",
+    "volumes": [],
+    "status": "INACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2023-05-18T14:46:10.886Z",
+    "deregisteredAt": "2023-05-18T17:48:41.539Z",
+    "registeredBy": "arn:aws:iam::514026916061:user/VScode1",
+    "tags": []
+}
