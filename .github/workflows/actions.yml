@@ -1,5 +1,4 @@
 name: "Terraform deploy"
- 
 on:
   workflow_dispatch:
   push:
