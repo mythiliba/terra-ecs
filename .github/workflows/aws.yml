@@ -37,7 +37,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: "public.ecr.aws/p9w4k9q9/helloworld-ecs"
+          ECR_REPOSITORY: "514026916061.dkr.ecr.ap-northeast-3.amazonaws.com/helloworld-ecs"
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
