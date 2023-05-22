@@ -161,7 +161,7 @@ resource "aws_ecs_task_definition" "my_task_definition" {
   [
     {
       "name": "helloworld-container",
-      "image": "public.ecr.aws/p9w4k9q9/helloworld-ecs",
+      "image": "514026916061.dkr.ecr.ap-northeast-3.amazonaws.com/helloworld-ecs",
       "portMappings": [
         {
           "containerPort": 3000,
